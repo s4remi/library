@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search By Isbn</title>
+    <title>Search by ISBN</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
   </head>
   <body>
-    <h1>HI</h1>
-    <header class="header">
-      <a href="#" class="logo">Libarary logo</a>
-      <form class="searform">
-        <input type="text" placeholder="search by ISBN" id="gotoresult" />
-      </form>
-      <button
-        id="searchbyisbn-btn"
-        type="button"
-        class="btn btn-primary"
-      ></button>
-    </header>
+    <div class="container">
+      <div class="row">
+        <h2 class="col-12 text-center">Search Book By ISBN:</h2>
+        <div class="col-6">
+          <input id="gotoresult" type="text" class="form-control" />
+        </div>
+        <button id="searchbyisbn-btn" class="col-3 btn btn-primary">
+          Search
+        </button>
+      </div>
+    </div>
   </body>
 </html>
