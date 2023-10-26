@@ -1,13 +1,13 @@
-import { MongoClient } from "mongodb";
 import { query } from "express";
+import { MongoClient } from "mongodb";
 
 import dotenv from "dotenv";
 dotenv.config();
 
 const connection_url = process.env.MONGO_URL;
-
+//const DB_name = "books";
 const MyDB = () => {
-  const myDb = {};
+  const myDB = {};
 
   const connect = () => {
     const client = new MongoClient(connection_url);
@@ -15,18 +15,22 @@ const MyDB = () => {
     const db = client.db("library");
     return { client, db };
   };
+  //filter the query by isbn
 
-  myDb.getBookByIsbn = async ({ query = {}, MaxElements = 2 }) => {
+  myDB.getBookByISBN = async ({ query = {}, MaxElements = 2 }) => {
     const { client, db } = connect();
     const bookCollection = db.collection("books");
-    console.log(bookCollection);
+    console.log("in the mongodb object .js search for");
+    console.log(query);
     try {
       return await bookCollection.find(query).limit(MaxElements).toArray();
     } finally {
-      console.log("db closing the connection");
+      console.log("db closing connection");
       client.close();
     }
   };
-  return myDb;
+
+  return myDB;
 };
-export const myDb = MyDB();
+
+export const myDB = MyDB();
