@@ -1,5 +1,5 @@
 import express, { query } from "express";
-import { myDB } from "../db/My.DB.js";
+import { myDB } from "../db/MyDB.js";
 import bcrypt from "bcrypt";
 import bodyParser from "body-parser";
 export const router = express.Router();
