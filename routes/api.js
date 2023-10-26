@@ -1,6 +1,6 @@
-import { myDB } from "../db/My.Db";
+import { myDb } from "../db/My.Db.js";
 import bodyParser from "body-parser";
-import api from "./routes/api.js";
+import express from "express";
 
 export const router = express.Router();
 
@@ -9,7 +9,7 @@ router.post("/searchByIsbn", bodyParser.json(), async (req, res) => {
   const query = { ISBN: parseInt(isbn, 10) };
   console.log(query);
 
-  const bookInfo = await myDB.getBookByIsbn({ query });
+  const bookInfo = await myDb.getBookByIsbn({ query });
   console.log("inside the searchByIsbn");
   console.log("the book info from getBookBYIsbn ", bookInfo);
   if (bookInfo) {

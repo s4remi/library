@@ -16,7 +16,7 @@ const MyDB = () => {
     return { client, db };
   };
 
-  myDB.getBookByIsbn = async ({ query = {}, MaxElements = 2 }) => {
+  myDb.getBookByIsbn = async ({ query = {}, MaxElements = 2 }) => {
     const { client, db } = connect();
     const bookCollection = db.collection("books");
     console.log(bookCollection);
@@ -27,6 +27,6 @@ const MyDB = () => {
       client.close();
     }
   };
-  return myDB;
+  return myDb;
 };
-export const myDB = MyDB();
+export const myDb = MyDB();
