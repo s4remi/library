@@ -1,5 +1,6 @@
 import { myDB } from "../db/My.Db";
 import bodyParser from "body-parser";
+import api from "./routes/api.js";
 
 export const router = express.Router();
 
